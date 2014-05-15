@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using Thrita.Web.Api.FreeWebApi.Models.DependencyInjection;
 
 namespace Thrita.Web.Api.FreeWebApi
 {
@@ -19,6 +21,11 @@ namespace Thrita.Web.Api.FreeWebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //Note: A simple Dependency Injection Solution by replacing DefaultHTTPControllerActivator
+            config.Services.Replace(
+                typeof(IHttpControllerActivator),
+                new ThritaHttpControllerActivator());
         }
     }
 }
