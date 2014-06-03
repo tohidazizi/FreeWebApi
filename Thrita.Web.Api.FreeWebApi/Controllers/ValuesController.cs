@@ -15,9 +15,9 @@ namespace Thrita.Web.Api.FreeWebApi.Controllers
             
             var allUrlKeyValues = ControllerContext.Request.GetQueryNameValuePairs();
 
-            string p1Val = allUrlKeyValues.SingleOrDefault(x => x.Key == "p1");
-            string p2Val = allUrlKeyValues.SingleOrDefault(x => x.Key == "p2");
-            string p3Val = allUrlKeyValues.SingleOrDefault(x => x.Key == "p3");
+            string p1Val = allUrlKeyValues.SingleOrDefault(x => x.Key == "p1").Value;
+            string p2Val = allUrlKeyValues.SingleOrDefault(x => x.Key == "p2").Value;
+            string p3Val = allUrlKeyValues.SingleOrDefault(x => x.Key == "p3").Value;
             
             return new string[] { "value1", "value2" , p1Val, p2Val, p3Val };
         }
