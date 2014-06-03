@@ -12,7 +12,14 @@ namespace Thrita.Web.Api.FreeWebApi.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            
+            var allUrlKeyValues = ControllerContext.Request.GetQueryNameValuePairs();
+
+            string p1Val = allUrlKeyValues.SingleOrDefault("p1");
+            string p2Val = allUrlKeyValues.SingleOrDefault("p2");
+            string p3Val = allUrlKeyValues.SingleOrDefault("p3");
+            
+            return new string[] { "value1", "value2" , p1Val, p2Val, p3Val };
         }
 
         // GET api/values/5
